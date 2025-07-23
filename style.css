@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap');
+
+body {
+  font-family: 'IM Fell DW Pica', serif;
+  background-color: #121212;
+  color: #f5f5f5;
+  padding: 30px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  color: #ffb6c1;
+  font-weight: bold;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.year {
+  margin-bottom: 40px;
+}
+
+.cycle {
+  margin-bottom: 20px;
+}
+
+.cycle h3 {
+  color: #e0e0e0;
+  border-bottom: 1px solid #444;
+  padding-bottom: 4px;
+  font-size: 20px;
+}
+
+.subjects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.subject {
+  padding: 12px;
+  border-radius: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 15px;
+  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.15);
+  position: relative;
+  user-select: none;
+  color: #212121;
+  font-weight: bold;
+  background-color: #eee;
+}
+
+.subject:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px #ffb6c1;
+}
+
+.aprobada {
+  background-color: #ffb6c1; /* rosado pastel */
+  text-decoration: line-through;
+}
+
+.cursando {
+  background-color: #b2ebf2; /* celeste pastel */
+}
+
+.bloqueada {
+  background-color: #d1c4e9; /* morado pastel */
+  cursor: not-allowed;
+}
+
+.subject[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 10;
+  opacity: 0.95;
+}
+
+@keyframes flash {
+  0% { box-shadow: 0 0 10px 2px #ffd6e8; }
+  100% { box-shadow: none; }
+}
+
+.subject.flash {
+  animation: flash 1s ease-in-out;
+}
